@@ -56,8 +56,8 @@ pipeline {
             steps {
                 echo 'Stage 7: Awaiting approval for production deployment'
                 input message: 'Deploy to production?', ok: 'Deploy'
-                bat 'if not exist D:\\project\\cicd\\www\\production mkdir D:\\project\\cicd\\www\\production'
-                bat 'xcopy /E /I /Y dist\\* D:\\project\\cicd\\www\\production\\'
+                bat 'if not exist D:\\projects\\cicd\\www\\production mkdir D:\\projects\\cicd\\www\\production'
+                bat 'xcopy /E /I /Y dist\\* D:\\projects\\cicd\\www\\production\\'
                 echo 'Deployed to http://localhost:8000'
             }
         }
