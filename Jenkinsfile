@@ -38,8 +38,8 @@ pipeline {
         stage('5. Deploy to Staging') {
             steps {
                 echo 'Stage 5: Deploying to local staging server (http://localhost:8001)'
-                bat 'if not exist D:\\www\\staging mkdir D:\\www\\staging'
-                bat 'xcopy /E /I /Y dist\\* D:\\www\\staging\\'
+                bat 'if not exist D:\\project\\cicd\\www\\staging mkdir D:\\www\\staging'
+                bat 'xcopy /E /I /Y dist\\* D:\\project\\cicd\\www\\staging\\'
             }
         }
 
@@ -56,8 +56,8 @@ pipeline {
             steps {
                 echo 'Stage 7: Awaiting approval for production deployment'
                 input message: 'Deploy to production?', ok: 'Deploy'
-                bat 'if not exist D:\\www\\production mkdir D:\\www\\production'
-                bat 'xcopy /E /I /Y dist\\* D:\\www\\production\\'
+                bat 'if not exist D:\\project\\cicd\\www\\production mkdir D:\\project\\cicd\\www\\production'
+                bat 'xcopy /E /I /Y dist\\* D:\\project\\cicd\\www\\production\\'
                 echo 'Deployed to http://localhost:8000'
             }
         }
